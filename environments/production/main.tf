@@ -14,7 +14,7 @@ variable "db_user" {}
 variable "db_password" {}
 
 module "modules" {
-  source = "../../modules/ecs"
+  source = "../../modules/ec2"
   build_env = var.build_env
   prefix = var.prefix
   domain = var.domain
