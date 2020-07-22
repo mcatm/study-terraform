@@ -1,0 +1,16 @@
+build_env = "production"
+
+aws_region = "ap-northeast-1"
+aws_profile = "harga"
+aws_shared_credentials_file = "$HOME/.aws/credentials"
+
+aws_auth_token = ""
+aws_auth_secret = ""
+
+domain = "harga.test"
+
+prefix = "harga"
+
+db_name = "harga"
+db_user = "harga"
+db_password = "3030"

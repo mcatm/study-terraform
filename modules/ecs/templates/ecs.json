@@ -1,0 +1,50 @@
+[
+  {
+    "name": "${container_name}",
+    "image": "${image}",
+    "portMappings": [
+      {
+        "containerPort": 8080,
+        "hostPort": 8080
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${log_group}",
+        "awslogs-region": "${aws_region}",
+        "awslogs-stream-prefix": "${container_name}-log"
+      }
+    },
+    "environment": [
+      {
+        "name": "MYSQL_HOST",
+        "value": "${rds_endpoint}"
+      },
+      {
+        "name": "MYSQL_PASSWORD",
+        "value": "${db_password}"
+      },
+      {
+        "name": "MYSQL_USER",
+        "value": "${db_user}"
+      },
+      {
+        "name": "MYSQL_DATABASE",
+        "value": "${db_name}"
+      },
+      {
+        "name": "AWS_ACCESS_KEY",
+        "value": "${aws_auth_token}"
+      },
+      {
+        "name": "AWS_SECRET_KEY",
+        "value": "${aws_auth_secret}"
+      },
+      {
+        "name": "S3_BUCKET_NAME",
+        "value": "${s3_bucket}"
+      }
+    ]
+  }
+]
