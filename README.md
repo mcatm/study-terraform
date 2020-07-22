@@ -56,6 +56,7 @@ Terraformのプロジェクトディレクトリで、初期化を行います�
 
 
 ```sh
+$ cd environments/production/
 $ terraform init
 ```
 
@@ -222,7 +223,7 @@ https://github.com/terraform-providers/terraform-provider-aws
 
 ### resource
 
-利用するサービスの設定を行うブロック。サービスごとに設定項目が異なる。`resource "{サービス}" "{任意のID}"`のような形で設定でき、同一モジュール内他のブロックから`{ID}.{変数名}`という形でアクセスできる。
+利用するサービスの設定を行うブロック。サービスごとに設定項目が異なる。`resource "{サービス}" "{任意のID}"`のような形で設定でき、同一モジュール内他のブロックから`{サービス}.{ID}.{変数名}`という形でアクセスできる。
 
 ```
 resource "aws_cloudwatch_log_stream" "ecs-log-stream" {
@@ -231,7 +232,7 @@ resource "aws_cloudwatch_log_stream" "ecs-log-stream" {
 }
 ```
 
-上記resource内変数は、例えば`ecs-log-stream.log_group_name`という形でアクセス可能
+上記resource内変数は、例えば`aws_cloudwatch_log_stream.ecs-log-stream.log_group_name`という形でアクセス可能
 
 
 
